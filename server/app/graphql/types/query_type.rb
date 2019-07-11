@@ -1,5 +1,5 @@
 module Types
   class QueryType < Types::BaseObject
-    field :issues, resolver: Resolvers::IssueResolver
+    field :issues, resolver: Resolvers::IssuesResolver
   end
 end
