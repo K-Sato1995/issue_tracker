@@ -1,0 +1,14 @@
+{
+  "name": "IssueTracker",
+  "private": true,
+  "dependencies": {},
+  "scripts": {
+    "setup": "docker-compose run server rake db:setup",
+    "up": "docker-compose up",
+    "build": "docker-compose build",
+    "console": "docker-compose run server rails c",
+    "bundle": "docker-compose run server bundle install",
+    "spec": "docker-compose run -e 'RAILS_ENV=test' server rspec",
+    "server": "docker-compose run server"
+  }
+}
