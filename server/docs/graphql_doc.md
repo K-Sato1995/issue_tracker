@@ -76,5 +76,31 @@ mutation {
 ## Get Progresses
 
 ```
+{
+  progresses {
+    id
+    description
+    spentTime
+  }
+}
+```
 
+## Create Progress
+
+```
+mutation {
+  createProgress(
+    input:{
+      issueId:1
+      description: "Issue description"
+      spentTime:35
+    }
+  ){
+   progress{
+      description
+      spentTime
+    }
+    result
+  }
+}
 ```
