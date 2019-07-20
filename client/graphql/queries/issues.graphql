@@ -1,0 +1,9 @@
+query issues {
+  issues {
+    title
+    description
+    status
+    priority
+    deadline
+  }
+}
