@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe Resolvers::Issues::IssuesResolver do
-  let!(:issues) { create_list(:issue, 3) }
+RSpec.describe Resolvers::Progresses::ProgressesResolver do
+  let!(:progresses) { create_list(:progress, 3) }
 
   subject(:resolver) { described_class.new(object: nil, context: nil) }
 

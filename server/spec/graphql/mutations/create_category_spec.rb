@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Mutations::CreateCategory do
+RSpec.describe Mutations::Categories::CreateCategory do
   subject(:mutation) { described_class.new(object: nil, context: nil) }
   let(:attributes) { attributes_for(:category, name: Faker::App.name) }
 
