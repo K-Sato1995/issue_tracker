@@ -35,6 +35,7 @@
 
 # testing
 /client/coverage
+/server/coverage/
 
 # production
 /client/build
