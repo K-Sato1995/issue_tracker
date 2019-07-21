@@ -126,7 +126,7 @@ export type IssuesQuery = { __typename?: "Query" } & {
   issues: Array<
     { __typename?: "Issue" } & Pick<
       Issue,
-      "title" | "description" | "status" | "priority" | "deadline"
+      "id" | "title" | "description" | "status" | "priority" | "deadline"
     >
   >;
 };
@@ -134,6 +134,7 @@ export type IssuesQuery = { __typename?: "Query" } & {
 export const IssuesDocument = gql`
   query issues {
     issues {
+      id
       title
       description
       status

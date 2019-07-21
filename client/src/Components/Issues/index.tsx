@@ -1,10 +1,8 @@
 import React from "react";
+import List from "./List";
 import { useIssuesQuery } from "../../generated/graphql";
-interface IssueProps {
-  title: string;
-}
 
-const Issue = ({ title }: IssueProps) => {
+const Issue = () => {
   const { data, error, loading } = useIssuesQuery();
 
   if (loading) return <div>Fetching</div>;
@@ -13,8 +11,10 @@ const Issue = ({ title }: IssueProps) => {
 
   return (
     <div>
-      {console.log(data)}
-      <h1>{title}</h1>
+      <ul>
+        {console.log(data.issues)}
+        <List issues={data.issues} />
+      </ul>
     </div>
   );
 };
