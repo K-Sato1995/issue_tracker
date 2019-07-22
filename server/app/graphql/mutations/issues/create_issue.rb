@@ -9,11 +9,11 @@ module Mutations
       argument :status, Int, required: false
       argument :priority, Int, required: false
       argument :deadline, Int, required: false
-      argument :category_id, ID, required: false
+      argument :project_id, ID, required: false
 
       def resolve(**args)
-        category = Category.find(args[:category_id])
-        issue = category.issues.create(title: args[:title],
+        project = Project.find(args[:project_id])
+        issue = project.issues.create(title: args[:title],
                                        description: args[:description],
                                        status: args[:status],
                                        priority: args[:priority],

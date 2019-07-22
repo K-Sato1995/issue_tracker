@@ -10,17 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_17_112357) do
+ActiveRecord::Schema.define(version: 2019_07_22_091447) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "categories", force: :cascade do |t|
-    t.string "name", null: false
-    t.text "description", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "issues", force: :cascade do |t|
     t.string "title", null: false
@@ -28,10 +21,10 @@ ActiveRecord::Schema.define(version: 2019_07_17_112357) do
     t.integer "status", default: 0, null: false
     t.integer "priority", default: 0, null: false
     t.datetime "deadline", default: -> { "CURRENT_TIMESTAMP" }, null: false
-    t.bigint "category_id"
+    t.bigint "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_issues_on_category_id"
+    t.index ["project_id"], name: "index_issues_on_project_id"
   end
 
   create_table "progresses", force: :cascade do |t|
@@ -41,6 +34,13 @@ ActiveRecord::Schema.define(version: 2019_07_17_112357) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["issue_id"], name: "index_progresses_on_issue_id"
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "description", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "progresses", "issues"

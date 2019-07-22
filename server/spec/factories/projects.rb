@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :category do
+  factory :project do
     name { Faker::App.name }
     description { Faker::Lorem.paragraph }
   end

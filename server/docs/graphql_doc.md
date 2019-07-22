@@ -1,28 +1,29 @@
-# Category
+# Project
 
-## Get Categories
+## Get Projects
 
 ```
 {
-  categories {
+  projects {
     id
     name
     description
+    issues
   }
 }
 ```
 
-## Create Category
+## Create Project
 
 ```
 mutation {
-  createCategory(
+  createProject(
     input:{
       name: "title1"
       description: "description1"
     }
   ){
-    category{
+    project{
       name
       description
     }
@@ -53,7 +54,7 @@ mutation {
 mutation {
   createIssue(
     input:{
-      categoryId:1
+      projectId:1
       title: "IssueTitle"
       description: "Issue description"
       status: 0

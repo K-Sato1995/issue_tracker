@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Types::CategoryType do
+RSpec.describe Types::ProjectType do
   describe '.fields' do
     subject { described_class.fields }
     example { expect(subject['id'].type.to_graphql.to_s).to eq 'ID!' }
