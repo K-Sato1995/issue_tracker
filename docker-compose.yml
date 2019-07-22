@@ -5,10 +5,12 @@ services:
     command: /bin/sh -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
       - ./server:/myapp/server
+      - bundle_path:/myapp/server/bundle
     ports:
       - "${SERVER_PORT}:3000"
     environment:
       - DATABASE_URL=postgres://postgres:servers@db:5432/servers
+      - BUNDLE_PATH=/myapp/server/bundle
     depends_on:
       - db
   db:
@@ -22,7 +24,9 @@ services:
     command: "npm run start"
     volumes:
       - ./client:/myapp/client
+      - /myapp/client/node_modules
     ports:
       - "${CLIENT_PORT}:3000"
 volumes:
   server_db:
+  bundle_path:

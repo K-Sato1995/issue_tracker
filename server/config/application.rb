@@ -10,7 +10,7 @@ module Backend
   class Application < Rails::Application
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins 'localhost:8000'
+        origins 'localhost:4020'
         resource '*', headers: :any, methods: [:get, :put, :post]
       end
     end
