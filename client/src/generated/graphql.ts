@@ -131,6 +131,14 @@ export type IssuesQuery = { __typename?: "Query" } & {
   >;
 };
 
+export type ProjectsQueryVariables = {};
+
+export type ProjectsQuery = { __typename?: "Query" } & {
+  projects: Array<
+    { __typename?: "Project" } & Pick<Project, "id" | "name" | "description">
+  >;
+};
+
 export const IssuesDocument = gql`
   query issues {
     issues {
@@ -153,3 +161,22 @@ export function useIssuesQuery(
   );
 }
 export type IssuesQueryHookResult = ReturnType<typeof useIssuesQuery>;
+export const ProjectsDocument = gql`
+  query projects {
+    projects {
+      id
+      name
+      description
+    }
+  }
+`;
+
+export function useProjectsQuery(
+  baseOptions?: ReactApolloHooks.QueryHookOptions<ProjectsQueryVariables>
+) {
+  return ReactApolloHooks.useQuery<ProjectsQuery, ProjectsQueryVariables>(
+    ProjectsDocument,
+    baseOptions
+  );
+}
+export type ProjectsQueryHookResult = ReturnType<typeof useProjectsQuery>;

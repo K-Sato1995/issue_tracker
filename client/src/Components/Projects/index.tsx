@@ -1,9 +1,9 @@
 import React from "react";
 import List from "./List";
-import { useIssuesQuery } from "../../generated/graphql";
+import { useProjectsQuery } from "../../generated/graphql";
 
-const Issue = () => {
-  const { data, error, loading } = useIssuesQuery();
+const Projects = () => {
+  const { data, error, loading } = useProjectsQuery();
 
   if (loading) return <div>Fetching</div>;
   if (error) return <div>Error</div>;
@@ -12,11 +12,10 @@ const Issue = () => {
   return (
     <div>
       <ul>
-        {console.log(data.issues)}
-        <List issues={data.issues} />
+        <List projects={data.projects} />
       </ul>
     </div>
   );
 };
 
-export default Issue;
+export default Projects;
