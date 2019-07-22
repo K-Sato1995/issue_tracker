@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2019_07_22_091447) do
   create_table "progresses", force: :cascade do |t|
     t.text "description", null: false
     t.integer "spent_time", default: 0
+    t.datetime "date", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.bigint "issue_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
