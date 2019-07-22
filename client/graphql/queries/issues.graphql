@@ -1,0 +1,10 @@
+query issues {
+  issues {
+    id
+    title
+    description
+    status
+    priority
+    deadline
+  }
+}

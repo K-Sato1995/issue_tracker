@@ -4,11 +4,14 @@
   "dependencies": {},
   "scripts": {
     "setup": "docker-compose run server rake db:setup",
+    "seed": "docker-compose run server rake db:seed",
+    "reset": "docker-compose run server rake db:migrate:reset",
     "up": "docker-compose up",
     "build": "docker-compose build",
     "console": "docker-compose run server rails c",
     "bundle": "docker-compose run server bundle install",
     "spec": "docker-compose run -e 'RAILS_ENV=test' server rspec",
-    "server": "docker-compose run server"
+    "server": "docker-compose run server",
+    "client": "docker-compose run client"
   }
 }

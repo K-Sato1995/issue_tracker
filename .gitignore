@@ -17,6 +17,7 @@
 /server/storage/*
 /server!/storage/.keep
 
+/node_modules
 /server/node_modules
 /server/yarn-error.log
 

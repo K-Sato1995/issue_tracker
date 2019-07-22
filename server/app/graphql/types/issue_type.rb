@@ -7,6 +7,6 @@ module Types
     field :priority, Int, null: false
     field :deadline, Types::DateTimeType, null: false
     field :progresses, [Types::ProgressType], null: false
-    field :category, Types::CategoryType, null: false
+    field :project, Types::ProjectType, null: false
   end
 end

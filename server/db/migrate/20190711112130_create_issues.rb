@@ -6,7 +6,7 @@ class CreateIssues < ActiveRecord::Migration[5.2]
       t.integer :status, null: false, default: 0
       t.integer :priority, null: false, default: 0
       t.datetime :deadline, null: false, default: -> { 'CURRENT_TIMESTAMP' }
-      t.references :category, index: true
+      t.references :project, index: true
 
       t.timestamps
     end

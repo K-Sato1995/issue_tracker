@@ -6,6 +6,6 @@ FactoryBot.define do
     priority { 0 }
     deadline { Time.now }
 
-    association :category, factory: :category
+    association :project, factory: :project
   end
 end
