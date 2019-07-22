@@ -11,7 +11,4 @@ RUN mkdir -p /myapp/server
 
 WORKDIR /myapp/server
 
-COPY Gemfile /myapp/server/Gemfile
-COPY Gemfile.lock /myapp/server/Gemfile.lock
-RUN bundle install -j4
 COPY . /myapp/server
