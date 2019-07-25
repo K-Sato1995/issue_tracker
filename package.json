@@ -3,14 +3,15 @@
   "private": true,
   "dependencies": {},
   "scripts": {
-    "setup": "docker-compose run server rake db:setup",
-    "seed": "docker-compose run server rake db:seed",
-    "reset": "docker-compose run server rake db:migrate:reset",
+    "setup": "docker-compose run server bundle exec rake db:setup",
+    "seed": "docker-compose run server bundle exec rake db:seed",
+    "reset": "docker-compose run server bundle exec rake db:migrate:reset",
     "up": "docker-compose up",
+    "down": "docker-compose down",
     "build": "docker-compose build",
-    "console": "docker-compose run server rails c",
+    "console": "docker-compose run server bundle exec bin/rails c",
     "bundle": "docker-compose run server bundle install",
-    "spec": "docker-compose run -e 'RAILS_ENV=test' server rspec",
+    "spec": "docker-compose run -e 'RAILS_ENV=test' server bundle exec rspec",
     "server": "docker-compose run server",
     "client": "docker-compose run client"
   }

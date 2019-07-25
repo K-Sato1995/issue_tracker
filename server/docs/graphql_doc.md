@@ -1,3 +1,45 @@
+# User
+
+## Create User
+
+```
+mutation {
+  createUser(input:{
+    name: "User2",
+    authProvider:{
+      auth: {
+        email: "test@example.com",
+      	password: "123456"
+      }
+    }
+  }
+  ) {
+    id
+    email
+    name
+  }
+}
+```
+
+## Sign In User
+
+```
+mutation {
+  signinUser(input: {
+    auth:{
+      email:"a@example.com",
+      password:"111111"
+    }
+  }) {
+    token
+    user {
+      email
+      name
+    }
+  }
+}
+```
+
 # Project
 
 ## Get Projects
