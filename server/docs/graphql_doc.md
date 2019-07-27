@@ -30,11 +30,11 @@ mutation {
       password:"111111"
     }
   }) {
-    token
     user {
       email
       name
     }
+    token
   }
 }
 ```

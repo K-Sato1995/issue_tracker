@@ -1,8 +1,6 @@
 module Mutations
   module Users
     class CreateUser < Mutations::BaseMutation
-      # often we will need input types for specific mutation
-      # in those cases we can define those input types in the mutation class itself
       class AuthProviderSignupData < Types::BaseInputObject
         argument :auth, Types::AuthProviderInput, required: false
       end
