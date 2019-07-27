@@ -4,19 +4,17 @@
 
 ```
 mutation {
-  createUser(input:{
-    name: "User2",
-    authProvider:{
-      auth: {
-        email: "test@example.com",
-      	password: "123456"
-      }
+  createUser(
+    input: {
+      name: "User2"
+      authProvider: { auth: { email: "tessstsdfsss@exsampssle.com", password: "123456" } }
     }
-  }
   ) {
-    id
-    email
-    name
+    user {
+      id
+      name
+      email
+    }
   }
 }
 ```

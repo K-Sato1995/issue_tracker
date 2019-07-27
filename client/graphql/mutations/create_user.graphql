@@ -1,0 +1,12 @@
+mutation {
+  createUser(userInput: {email: "${email}", password: "${password}"})(
+    input: {
+      name: $name
+      authProvider: { auth: { email: "test@example.com", password: "123456" } }
+    }
+  ) {
+    id
+    email
+    name
+  }
+}
