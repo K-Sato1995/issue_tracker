@@ -7,7 +7,7 @@ mutation {
   createUser(
     input: {
       name: "User2"
-      authProvider: { auth: { email: "tessstsdfsss@exsampssle.com", password: "123456" } }
+      authProvider: { auth: { email: "tesssstsdfsss@exsampssle.com", password: "123456" } }
     }
   ) {
     user {
@@ -15,6 +15,7 @@ mutation {
       name
       email
     }
+    errors
   }
 }
 ```

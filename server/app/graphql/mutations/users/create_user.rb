@@ -8,21 +8,28 @@ module Mutations
       end
 
       field :user, Types::UserType, null: true
-      field :result, Boolean, null: true
+      field :errors, [String], null: false
 
       argument :name, String, required: false
       argument :auth_provider, AuthProviderSignupData, required: false
 
       def resolve(**args)
-        user = User.create(
+        user = User.new(
           name: args[:name],
           email: args[:auth_provider]&.[](:auth)&.[](:email),
           password: args[:auth_provider]&.[](:auth)&.[](:password)
         )
-        {
-          user: user,
-          result: user.errors.blank?
-        }
+        if user.save
+          {
+            user: user,
+            errors: []
+          }
+        else
+          {
+            user: nil,
+            errors: user.errors.full_messages
+          }
+        end
       end
     end
   end
