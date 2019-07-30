@@ -50,6 +50,23 @@ mutation {
 }
 ```
 
+## Delete Project
+
+```
+mutation {
+  deleteProject(
+    input:{
+      id: 1
+    }
+  ){
+    project{
+      name
+      description
+    }
+  }
+}
+```
+
 # Issue
 
 ## Get Issues
