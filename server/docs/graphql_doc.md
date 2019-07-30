@@ -39,6 +39,24 @@ mutation {
 }
 ```
 
+## Sign Out User
+
+```
+mutation {
+  signoutUser(input: {
+    auth:{
+      email:"a@example.com",
+      password:"111111"
+    }
+  }) {
+    user {
+      email
+      name
+    }
+  }
+}
+```
+
 # Project
 
 ## Get Projects
