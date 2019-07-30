@@ -1,8 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Mutations::Projects::CreateProject do
-  let(:user) { create(:user) }
-  subject(:mutation) { described_class.new(object: nil, context: {current_user: user}) }
+  subject(:mutation) { described_class.new(object: nil, context: nil) }
   let(:attributes) { attributes_for(:project, name: Faker::App.name) }
 
   describe '#resolve' do
