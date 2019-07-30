@@ -7,7 +7,7 @@ RSpec.describe Mutations::Projects::CreateProject do
   describe '#resolve' do
     subject { mutation.resolve(attributes) }
     it 'creates a project' do
-      expect( subject[:project].name).to eq attributes[:name]
+      expect(subject[:project].name).to eq attributes[:name]
     end
   end
 end

@@ -8,7 +8,7 @@ module Mutations
       argument :description, String, required: false
 
       def resolve(**args)
-        project = Project.create(name: args[:name], description: args[:description] )
+        project = Project.create(name: args[:name], description: args[:description])
         {
           project: project,
           result: project.errors.blank?

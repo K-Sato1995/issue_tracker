@@ -14,6 +14,7 @@ if ENV['RAILS_ENV'] == 'test'
     add_filter '/mailers/'
     add_filter '/controllers/application_controller.rb'
     add_filter '/config/'
+    add_filter '/bundle/'
     add_filter '/spec/'
   end
 end

@@ -4,8 +4,8 @@ class GraphqlController < ApplicationController
     query = params[:query]
     operation_name = params[:operationName]
     context = {
-      # Query context goes here, for example:
-      # current_user: current_user,
+      # Query context goes here, for example:	     session: session,
+      # current_user: current_user,	     current_user: current_user
     }
     result = BackendSchema.execute(query, variables: variables, context: context, operation_name: operation_name)
     render json: result
@@ -15,7 +15,6 @@ class GraphqlController < ApplicationController
   end
 
   private
-
   # Handle form data, JSON body, or a blank value
   def ensure_hash(ambiguous_param)
     case ambiguous_param
