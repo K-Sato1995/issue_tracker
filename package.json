@@ -1,7 +1,9 @@
 {
   "name": "IssueTracker",
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "@types/react-router-dom": "^4.3.4"
+  },
   "scripts": {
     "setup": "docker-compose run server bundle exec rake db:setup",
     "seed": "docker-compose run server bundle exec rake db:seed",
