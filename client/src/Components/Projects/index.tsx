@@ -1,5 +1,6 @@
 import React from "react";
 import List from "./List";
+import Form from "./Form";
 import { useProjectsQuery } from "../../generated/graphql";
 
 const Projects = () => {
@@ -12,6 +13,7 @@ const Projects = () => {
   return (
     <div>
       <ul>
+        <Form />
         <List projects={data.projects} />
       </ul>
     </div>

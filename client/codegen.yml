@@ -1,6 +1,6 @@
 overwrite: true
 schema:
-  - http://localhost:3000/graphql:
+  - http://localhost:3020/graphql:
 documents:
   - "./graphql/queries/*.graphql"
   - "./graphql/mutations/*.graphql"

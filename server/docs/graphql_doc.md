@@ -31,6 +31,42 @@ mutation {
 }
 ```
 
+## Update Project
+
+```
+mutation {
+  updateProject(
+    input:{
+      id: 1
+      name: "new-title"
+      description: "description1"
+    }
+  ){
+    project{
+      name
+      description
+    }
+  }
+}
+```
+
+## Delete Project
+
+```
+mutation {
+  deleteProject(
+    input:{
+      id: 1
+    }
+  ){
+    project{
+      name
+      description
+    }
+  }
+}
+```
+
 # Issue
 
 ## Get Issues

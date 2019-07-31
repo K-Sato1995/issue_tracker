@@ -1,12 +1,16 @@
 import React from "react";
 import Projects from "./Projects";
+import Header from "./Header";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 const App: React.FC = () => {
   return (
-    <div className="App">
-      <h1>Issue Tracker</h1>
-      <Projects />
-    </div>
+    <Router>
+      <div className="App">
+        <Header />
+        <Route exact path="/" component={Projects} />
+      </div>
+    </Router>
   );
 };
 
