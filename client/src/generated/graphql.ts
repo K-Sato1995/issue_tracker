@@ -185,8 +185,8 @@ export type ProjectsQuery = { __typename?: "Query" } & {
 };
 
 export type CreateProjectMutationVariables = {
-  name?: Maybe<Scalars["String"]>;
-  description?: Maybe<Scalars["String"]>;
+  name: Scalars["String"];
+  description: Scalars["String"];
 };
 
 export type CreateProjectMutation = { __typename?: "Mutation" } & {
@@ -241,7 +241,7 @@ export function useProjectsQuery(
 }
 export type ProjectsQueryHookResult = ReturnType<typeof useProjectsQuery>;
 export const CreateProjectDocument = gql`
-  mutation createProject($name: String, $description: String) {
+  mutation createProject($name: String!, $description: String!) {
     createProject(input: { name: $name, description: $description }) {
       project {
         name
