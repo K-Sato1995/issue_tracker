@@ -5,6 +5,9 @@ documents:
   - "./graphql/queries/*.graphql"
   - "./graphql/mutations/*.graphql"
 generates:
+  ./src/middleware/fragmentTypes.json:
+    plugins:
+      - fragment-matcher
   ./src/generated/graphql.ts:
     plugins:
       - "typescript"

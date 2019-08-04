@@ -25,8 +25,9 @@ const ProjectForm = () => {
         placeholder="Description"
       />
       <button
+        type="button"
         onClick={async () => {
-          // await createProjectMutation({ variables: { name, description } });
+          await createProjectMutation({ variables: { name, description } });
           await projectsQuery.refetch();
           console.log("Created Project");
         }}
