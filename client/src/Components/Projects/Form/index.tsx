@@ -27,6 +27,7 @@ const ProjectForm = () => {
       <button
         type="button"
         onClick={async () => {
+          // TODO Fix the error
           await createProjectMutation({ variables: { name, description } });
           await projectsQuery.refetch();
           console.log("Created Project");
