@@ -8,7 +8,6 @@
     "@types/node": "12.6.8",
     "@types/react": "16.8.23",
     "@types/react-dom": "16.8.4",
-    "apollo-boost": "^0.4.3",
     "i": "^0.3.6",
     "npm": "^6.10.1",
     "react": "^16.8.6",
@@ -17,7 +16,7 @@
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
-    "typescript": "3.5.3"
+    "typescript": ">=3.2.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -43,10 +42,10 @@
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^1.4.0",
-    "graphql": "^14.4.2",
+    "@graphql-codegen/introspection": "1.4.0",
     "@graphql-codegen/typescript": "1.4.0",
     "@graphql-codegen/typescript-operations": "1.4.0",
     "@graphql-codegen/typescript-react-apollo": "1.4.0",
-    "@graphql-codegen/introspection": "1.4.0"
+    "graphql": "^14.5.7"
   }
 }
