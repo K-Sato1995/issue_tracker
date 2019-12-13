@@ -8,8 +8,10 @@
     "@types/node": "12.6.8",
     "@types/react": "16.8.23",
     "@types/react-dom": "16.8.4",
+    "apollo": "^2.21.2",
     "i": "^0.3.6",
     "npm": "^6.10.1",
+    "npm-run-all": "^4.1.5",
     "react": "^16.8.6",
     "react-apollo": "^2.5.8",
     "react-apollo-hooks": "^0.5.0",
@@ -19,11 +21,14 @@
     "typescript": ">=3.2.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "PORT=4020 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "generate": "graphql-codegen --config codegen.yml"
+    "generate": "npm-run-all clean generate:*",
+    "generate:types": "apollo client:codegen --endpoint='http://localhost:3020/graphql' --includes='src/graphql/**/*.graphql' --target=typescript --outputFlat --tsFileExtension='d.ts' src/__types__",
+    "generate:fragmentTypes": "gql-gen",
+    "clean": "rimraf src/schema.graphql src/__types__ src/fragmentTypes.json"
   },
   "eslintConfig": {
     "extends": "react-app"

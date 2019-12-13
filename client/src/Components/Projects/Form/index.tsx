@@ -9,6 +9,7 @@ const ProjectForm = () => {
   const [description, setDescription] = useState("");
   const createProjectMutation = useCreateProjectMutation();
   const projectsQuery = useProjectsQuery();
+
   return (
     <form>
       <h3>Project Form</h3>
@@ -26,8 +27,9 @@ const ProjectForm = () => {
       />
       <button
         type="button"
-        onClick={async () => {
+        onClick={async e => {
           // TODO Fix the error
+          e.preventDefault;
           await createProjectMutation({ variables: { name, description } });
           await projectsQuery.refetch();
           console.log("Created Project");
