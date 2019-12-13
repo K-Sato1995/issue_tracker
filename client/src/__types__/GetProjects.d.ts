@@ -3,16 +3,16 @@
 // This file was automatically generated and should not be edited.
 
 // ====================================================
-// GraphQL query operation: projects
+// GraphQL query operation: GetProjects
 // ====================================================
 
-export interface projects_projects {
+export interface GetProjects_projects {
   __typename: "Project";
   id: string;
   name: string;
   description: string;
 }
 
-export interface projects {
-  projects: projects_projects[];
+export interface GetProjects {
+  projects: GetProjects_projects[];
 }

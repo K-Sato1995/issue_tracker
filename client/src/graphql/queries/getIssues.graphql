@@ -1,4 +1,4 @@
-query issues {
+query GetIssues {
   issues {
     id
     title
