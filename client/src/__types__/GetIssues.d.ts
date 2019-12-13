@@ -3,20 +3,19 @@
 // This file was automatically generated and should not be edited.
 
 // ====================================================
-// GraphQL query operation: project
+// GraphQL query operation: GetIssues
 // ====================================================
 
-export interface project_project {
-  __typename: "Project";
+export interface GetIssues_issues {
+  __typename: "Issue";
   id: string;
-  name: string;
+  title: string;
   description: string;
+  status: number;
+  priority: number;
+  deadline: any;
 }
 
-export interface project {
-  project: project_project;
-}
-
-export interface projectVariables {
-  id: string;
+export interface GetIssues {
+  issues: GetIssues_issues[];
 }
