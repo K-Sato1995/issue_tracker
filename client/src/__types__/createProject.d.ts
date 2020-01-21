@@ -3,26 +3,26 @@
 // This file was automatically generated and should not be edited.
 
 // ====================================================
-// GraphQL mutation operation: createProject
+// GraphQL mutation operation: CreateProject
 // ====================================================
 
-export interface createProject_createProject_project {
+export interface CreateProject_createProject_project {
   __typename: "Project";
   id: string;
   name: string;
   description: string;
 }
 
-export interface createProject_createProject {
+export interface CreateProject_createProject {
   __typename: "CreateProjectPayload";
-  project: createProject_createProject_project | null;
+  project: CreateProject_createProject_project | null;
 }
 
-export interface createProject {
-  createProject: createProject_createProject | null;
+export interface CreateProject {
+  createProject: CreateProject_createProject | null;
 }
 
-export interface createProjectVariables {
+export interface CreateProjectVariables {
   name: string;
   description: string;
 }

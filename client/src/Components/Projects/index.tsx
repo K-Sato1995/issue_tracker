@@ -6,6 +6,7 @@ import Form from "./Form";
 import { GetProjects } from "../../__types__/GetProjects";
 
 const GET_PROJECTS = loader("src/graphql/queries/getProjects.graphql");
+
 const Projects = () => {
   const { data, error, loading } = useQuery<GetProjects>(GET_PROJECTS);
 
@@ -16,7 +17,7 @@ const Projects = () => {
   return (
     <div>
       <ul>
-        {/* <Form /> */}
+        <Form />
         <List projects={data.projects} />
       </ul>
     </div>
