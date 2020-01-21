@@ -8,7 +8,7 @@ import { GetProjects } from "../../__types__/GetProjects";
 const GET_PROJECTS = loader("src/graphql/queries/getProjects.graphql");
 
 const Projects = () => {
-  const { data, error, loading } = useQuery<GetProjects>(GET_PROJECTS);
+  const { data, error, loading, refetch } = useQuery<GetProjects>(GET_PROJECTS);
 
   if (loading) return <div>Fetching</div>;
   if (error) return <div>Error</div>;
@@ -17,7 +17,7 @@ const Projects = () => {
   return (
     <div>
       <ul>
-        <Form />
+        <Form refetch={refetch} />
         <List projects={data.projects} />
       </ul>
     </div>
