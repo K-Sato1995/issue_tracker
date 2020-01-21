@@ -1,13 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, MouseEvent } from "react";
 import { useMutation } from "@apollo/react-hooks";
 import { loader } from "graphql.macro";
 import {
   CreateProject,
-  CreateProjectVariables,
-  CreateProject_createProject_project
+  CreateProjectVariables
 } from "../../../__types__/CreateProject";
 
 const CREATE_PROJECT = loader("src/graphql/mutations/createProject.graphql");
+
+interface FormElements extends HTMLFormControlsCollection {
+  name: HTMLInputElement;
+  description: HTMLInputElement;
+}
 
 const ProjectForm = () => {
   const [name, setName] = useState("");
@@ -22,22 +26,32 @@ const ProjectForm = () => {
     }
   });
 
+  const handleSubmit = (e: MouseEvent<HTMLFormElement>): void => {
+    e.preventDefault();
+    const { name, description } = e.currentTarget.elements as FormElements;
+    createProject({
+      variables: { name: name.value, description: description.value }
+    });
+  };
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <h3>Project Form</h3>
       <input
         value={name}
         onChange={e => setName(e.target.value)}
         type="text"
+        name="name"
         placeholder="name"
       />
       <input
         value={description}
         onChange={e => setDescription(e.target.value)}
         type="text"
+        name="description"
         placeholder="Description"
       />
-      <button type="button">Submit</button>
+      <button type="submit">Submit</button>
     </form>
   );
 };

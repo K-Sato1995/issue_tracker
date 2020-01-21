@@ -14,6 +14,7 @@ const List = ({ projects }: ProjectProps) => {
     <ul>
       {projects.map(project => (
         <Item
+          key={project.id}
           id={project.id}
           name={project.name}
           description={project.description}
