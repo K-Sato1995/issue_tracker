@@ -1,4 +1,4 @@
-mutation createProject($name: String!, $description: String!) {
+mutation CreateProject($name: String!, $description: String!) {
   createProject(input: { name: $name, description: $description }) {
     project {
       id

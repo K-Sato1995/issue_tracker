@@ -1,14 +1,26 @@
 import React, { useState } from "react";
+import { useMutation } from "@apollo/react-hooks";
+import { loader } from "graphql.macro";
 import {
-  useCreateProjectMutation,
-  useProjectsQuery
-} from "../../../generated/graphql";
+  CreateProject,
+  CreateProjectVariables,
+  CreateProject_createProject_project
+} from "../../../__types__/CreateProject";
+
+const CREATE_PROJECT = loader("src/graphql/mutations/createProject.graphql");
 
 const ProjectForm = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
-  const createProjectMutation = useCreateProjectMutation();
-  const projectsQuery = useProjectsQuery();
+  const [createProject, { data }] = useMutation<
+    CreateProject,
+    CreateProjectVariables
+  >(CREATE_PROJECT, {
+    variables: {
+      name: name,
+      description: description
+    }
+  });
 
   return (
     <form>
@@ -25,18 +37,7 @@ const ProjectForm = () => {
         type="text"
         placeholder="Description"
       />
-      <button
-        type="button"
-        onClick={async e => {
-          // TODO Fix the error
-          e.preventDefault;
-          await createProjectMutation({ variables: { name, description } });
-          await projectsQuery.refetch();
-          console.log("Created Project");
-        }}
-      >
-        Submit
-      </button>
+      <button type="button">Submit</button>
     </form>
   );
 };
