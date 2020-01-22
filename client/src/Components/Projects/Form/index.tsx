@@ -1,4 +1,4 @@
-import React, { useState, MouseEvent } from "react";
+import React, { useState, MouseEvent, useCallback } from "react";
 import { useMutation } from "@apollo/react-hooks";
 import { loader } from "graphql.macro";
 import {
@@ -13,7 +13,11 @@ interface FormElements extends HTMLFormControlsCollection {
   description: HTMLInputElement;
 }
 
-const ProjectForm = () => {
+interface Props {
+  refetch: any;
+}
+
+const ProjectForm = ({ refetch }: Props) => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [createProject, { data }] = useMutation<
@@ -26,13 +30,13 @@ const ProjectForm = () => {
     }
   });
 
-  const handleSubmit = (e: MouseEvent<HTMLFormElement>): void => {
+  const handleSubmit = useCallback((e: MouseEvent<HTMLFormElement>): void => {
     e.preventDefault();
     const { name, description } = e.currentTarget.elements as FormElements;
     createProject({
       variables: { name: name.value, description: description.value }
     });
-  };
+  }, refetch());
 
   return (
     <form onSubmit={handleSubmit}>
