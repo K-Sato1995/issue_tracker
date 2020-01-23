@@ -1,5 +1,5 @@
 import React from "react";
-import Item from "./Item";
+import Item from "components/projects/ListItem";
 
 interface ProjectProps {
   projects: {
