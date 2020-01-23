@@ -1,18 +1,20 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 interface Props {
   id: string;
   name: string;
   description: string;
 }
 
-const Item = ({ id, name, description }: Props) => {
+const ListItem = ({ id, name, description }: Props) => {
   return (
     <li key={id}>
-      <h2>{name}</h2>
+      <h2>
+        <Link to={`project/${id}`}>{name}</Link>
+      </h2>
       <p>{description}</p>
     </li>
   );
 };
 
-export default Item;
+export default ListItem;

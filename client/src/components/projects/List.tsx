@@ -1,5 +1,5 @@
 import React from "react";
-import Item from "components/projects/ListItem";
+import ListItem from "components/projects/ListItem";
 
 interface ProjectProps {
   projects: {
@@ -13,7 +13,7 @@ const List = ({ projects }: ProjectProps) => {
   return (
     <ul>
       {projects.map(project => (
-        <Item
+        <ListItem
           key={project.id}
           id={project.id}
           name={project.name}
