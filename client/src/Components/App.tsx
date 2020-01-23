@@ -1,6 +1,6 @@
 import React from "react";
-import Projects from "./Projects";
-import Header from "./Header";
+import Projects from "components/projects";
+import Header from "components/header";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 const App: React.FC = () => {

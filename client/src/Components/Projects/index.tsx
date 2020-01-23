@@ -1,9 +1,9 @@
 import React from "react";
-import List from "./List";
+import List from "components/projects/List";
 import { useQuery } from "@apollo/react-hooks";
 import { loader } from "graphql.macro";
-import Form from "./Form";
-import { GetProjects } from "../../__types__/GetProjects";
+import Form from "components/projects/Form";
+import { GetProjects } from "__types__/GetProjects";
 
 const GET_PROJECTS = loader("src/graphql/queries/getProjects.graphql");
 
@@ -16,10 +16,8 @@ const Projects = () => {
 
   return (
     <div>
-      <ul>
-        <Form refetch={refetch} />
-        <List projects={data.projects} />
-      </ul>
+      <Form refetch={refetch} />
+      <List projects={data.projects} />
     </div>
   );
 };

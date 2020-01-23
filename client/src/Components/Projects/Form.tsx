@@ -1,10 +1,7 @@
 import React, { useState, MouseEvent, useCallback } from "react";
 import { useMutation } from "@apollo/react-hooks";
 import { loader } from "graphql.macro";
-import {
-  CreateProject,
-  CreateProjectVariables
-} from "../../../__types__/CreateProject";
+import { CreateProject, CreateProjectVariables } from "__types__/CreateProject";
 
 const CREATE_PROJECT = loader("src/graphql/mutations/createProject.graphql");
 
