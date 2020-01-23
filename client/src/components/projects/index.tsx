@@ -15,10 +15,10 @@ const Projects = () => {
   if (!data) return <div>Data not found</div>;
 
   return (
-    <div>
+    <>
       <Form refetch={refetch} />
       <List projects={data.projects} />
-    </div>
+    </>
   );
 };
 
