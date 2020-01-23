@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "components/App";
+import App from "App";
 import { ApolloProvider } from "@apollo/react-hooks";
-import { client } from "./middleware";
+import { client } from "middleware";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
