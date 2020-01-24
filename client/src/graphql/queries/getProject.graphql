@@ -3,5 +3,13 @@ query GetProject($id: ID!) {
     id
     name
     description
+    issues {
+      id
+      title
+      description
+      status
+      priority
+      deadline
+    }
   }
 }

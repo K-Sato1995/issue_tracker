@@ -1,11 +1,46 @@
 import React from "react";
+import { useParams } from "react-router-dom";
+import { GetProject, GetProjectVariables } from "__types__/GetProject";
+import { useQuery } from "@apollo/react-hooks";
+import { loader } from "graphql.macro";
 
-const index = () => {
+const GET_PROJECT = loader("src/graphql/queries/getProject.graphql");
+
+const ProjectDetail = () => {
+  const { id } = useParams();
+  if (!id) {
+    throw new Error();
+  }
+  const { data, error, loading } = useQuery<GetProject, GetProjectVariables>(
+    GET_PROJECT,
+    {
+      variables: { id }
+    }
+  );
+
+  if (error) {
+    return <>Error! {error.message}</>;
+  }
+
+  if (!data || loading) {
+    return <>Loading...</>;
+  }
+
+  const project = data.project;
+
   return (
     <div>
-      <h1>ProjectDetail</h1>
+      <h1>{project.name}</h1>
+      <h2>Issues</h2>
+      <ul>
+        {project.issues.map(issue => (
+          <li key={issue.id}>
+            {issue.title}:{issue.status}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
 
-export default index;
+export default ProjectDetail;
