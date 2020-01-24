@@ -32,6 +32,13 @@ const ProjectDetail = () => {
     <div>
       <h1>{project.name}</h1>
       <h2>Issues</h2>
+      <ul>
+        {project.issues.map(issue => (
+          <li key={issue.id}>
+            {issue.title}:{issue.status}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
