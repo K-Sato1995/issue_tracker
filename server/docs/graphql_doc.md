@@ -96,9 +96,6 @@ mutation {
     description
     deadline
     priority
-    progresses {
-      id
-    }
   }
 }
 ```
@@ -123,32 +120,6 @@ mutation {
       priority
     }
     result
-  }
-}
-```
-
-# Progress
-
-## Get Progresses
-
-```graphql
-{
-  progresses {
-    id
-    description
-    spentTime
-  }
-}
-```
-
-## Get a specific progress
-
-```graphql
-{
-  progress(id: 1) {
-    id
-    description
-    spentTime
   }
 }
 ```
