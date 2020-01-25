@@ -4,6 +4,5 @@ module Types
     field :updateProject, mutation: Mutations::Projects::UpdateProject
     field :deleteProject, mutation: Mutations::Projects::DeleteProject
     field :createIssue, mutation: Mutations::Issues::CreateIssue
-    field :createProgress, mutation: Mutations::Progresses::CreateProgress
   end
 end
