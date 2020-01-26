@@ -17,19 +17,22 @@ ActiveRecord::Schema.define(version: 2020_01_25_110314) do
 
   create_table "columns", force: :cascade do |t|
     t.string "title", null: false
+    t.bigint "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_columns_on_project_id"
   end
 
   create_table "issues", force: :cascade do |t|
     t.string "title", null: false
     t.text "description", null: false
-    t.integer "status", default: 0, null: false
     t.integer "priority", default: 0, null: false
     t.datetime "deadline", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.bigint "project_id"
+    t.bigint "column_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["column_id"], name: "index_issues_on_column_id"
     t.index ["project_id"], name: "index_issues_on_project_id"
   end
 
