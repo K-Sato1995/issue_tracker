@@ -3,9 +3,8 @@ module Types
     field :id, ID, null: false
     field :title, String, null: false
     field :description, String, null: false
-    field :status, Int, null: false
     field :priority, Int, null: false
     field :deadline, Types::DateTimeType, null: false
-    field :project, Types::ProjectType, null: false
+    field :column, Types::ColumnType, null: false
   end
 end

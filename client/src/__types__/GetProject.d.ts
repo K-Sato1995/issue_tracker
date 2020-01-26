@@ -6,14 +6,19 @@
 // GraphQL query operation: GetProject
 // ====================================================
 
-export interface GetProject_project_issues {
+export interface GetProject_project_columns_issues {
   __typename: "Issue";
-  id: string;
   title: string;
+  id: string;
   description: string;
-  status: number;
   priority: number;
   deadline: any;
+}
+
+export interface GetProject_project_columns {
+  __typename: "Column";
+  title: string;
+  issues: GetProject_project_columns_issues[];
 }
 
 export interface GetProject_project {
@@ -21,7 +26,7 @@ export interface GetProject_project {
   id: string;
   name: string;
   description: string;
-  issues: GetProject_project_issues[];
+  columns: GetProject_project_columns[];
 }
 
 export interface GetProject {

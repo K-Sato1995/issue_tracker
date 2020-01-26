@@ -3,13 +3,16 @@ query GetProject($id: ID!) {
     id
     name
     description
-    issues {
-      id
+    columns {
       title
-      description
-      status
-      priority
-      deadline
+      issues {
+        title
+        id
+        title
+        description
+        priority
+        deadline
+      }
     }
   }
 }
