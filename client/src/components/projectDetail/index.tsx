@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { GetProject, GetProjectVariables } from "__types__/GetProject";
 import { useQuery } from "@apollo/react-hooks";
 import { loader } from "graphql.macro";
+import { DragDropContext } from "react-beautiful-dnd";
 
 const GET_PROJECT = loader("src/graphql/queries/getProject.graphql");
 
