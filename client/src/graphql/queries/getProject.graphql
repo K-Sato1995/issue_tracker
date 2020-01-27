@@ -4,9 +4,9 @@ query GetProject($id: ID!) {
     name
     description
     columns {
+      id
       title
       issues {
-        title
         id
         title
         description

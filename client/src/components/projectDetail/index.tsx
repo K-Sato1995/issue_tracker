@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { GetProject, GetProjectVariables } from "__types__/GetProject";
 import { useQuery } from "@apollo/react-hooks";
 import { loader } from "graphql.macro";
+import Column from "components/projectDetail/Column";
 import { DragDropContext } from "react-beautiful-dnd";
 
 const GET_PROJECT = loader("src/graphql/queries/getProject.graphql");
@@ -35,12 +36,7 @@ const ProjectDetail = () => {
       <h2>Issues</h2>
       <ul>
         {project.columns.map(column => (
-          <div>
-            <h3>{column.title}</h3>
-            {column.issues.map(isssue => (
-              <li>{isssue.title}</li>
-            ))}
-          </div>
+          <Column key={column.id} column={column} />
         ))}
       </ul>
     </div>
