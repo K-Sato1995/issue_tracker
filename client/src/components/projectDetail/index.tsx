@@ -29,17 +29,18 @@ const ProjectDetail = () => {
   }
 
   const project = data.project;
-
+  const onDragEnd = () => {
+    // TODO: Change status here
+  };
   return (
-    <div>
+    <>
       <h1>{project.name}</h1>
-      <h2>Issues</h2>
-      <ul>
+      <DragDropContext onDragEnd={onDragEnd}>
         {project.columns.map(column => (
           <Column key={column.id} column={column} />
         ))}
-      </ul>
-    </div>
+      </DragDropContext>
+    </>
   );
 };
 

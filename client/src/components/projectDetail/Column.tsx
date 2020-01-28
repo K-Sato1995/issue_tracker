@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Issue from "components/projectDetail/Issue";
 import { GetProject_project_columns } from "__types__/GetProject";
+import { Droppable } from "react-beautiful-dnd";
 
 const Container = styled.div`
   margin: 8px;
@@ -21,11 +22,16 @@ const Column: React.FC<{ column: GetProject_project_columns }> = ({
   return (
     <Container>
       <Title>{column.title}</Title>
-      <IssueList>
-        {column.issues.map(issue => (
-          <Issue key={issue.id} issue={issue} />
-        ))}
-      </IssueList>
+      <Droppable droppableId={column.id}>
+        {provided => (
+          <IssueList innerRef={provided.innerRef} {...provided.droppableProps}>
+            {column.issues.map((issue, index) => (
+              <Issue key={issue.id} issue={issue} index={index} />
+            ))}
+            {provided.placeholder}
+          </IssueList>
+        )}
+      </Droppable>
     </Container>
   );
 };
