@@ -8,8 +8,8 @@
 
 export interface GetProject_project_columns_issues {
   __typename: "Issue";
-  title: string;
   id: string;
+  title: string;
   description: string;
   priority: number;
   deadline: any;
@@ -17,6 +17,7 @@ export interface GetProject_project_columns_issues {
 
 export interface GetProject_project_columns {
   __typename: "Column";
+  id: string;
   title: string;
   issues: GetProject_project_columns_issues[];
 }

@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { GetProject, GetProjectVariables } from "__types__/GetProject";
 import { useQuery } from "@apollo/react-hooks";
 import { loader } from "graphql.macro";
+import Column from "components/projectDetail/Column";
 import { DragDropContext } from "react-beautiful-dnd";
 
 const GET_PROJECT = loader("src/graphql/queries/getProject.graphql");
@@ -28,22 +29,18 @@ const ProjectDetail = () => {
   }
 
   const project = data.project;
-
+  const onDragEnd = () => {
+    // TODO: Change status here
+  };
   return (
-    <div>
+    <>
       <h1>{project.name}</h1>
-      <h2>Issues</h2>
-      <ul>
+      <DragDropContext onDragEnd={onDragEnd}>
         {project.columns.map(column => (
-          <div>
-            <h3>{column.title}</h3>
-            {column.issues.map(isssue => (
-              <li>{isssue.title}</li>
-            ))}
-          </div>
+          <Column key={column.id} column={column} />
         ))}
-      </ul>
-    </div>
+      </DragDropContext>
+    </>
   );
 };
 
