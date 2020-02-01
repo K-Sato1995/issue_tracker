@@ -4,12 +4,9 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <div>
-      <h1>Issue Tracker</h1>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-      </ul>
+      <h1>
+        <Link to="/">Issue Tracker</Link>
+      </h1>
     </div>
   );
 };
