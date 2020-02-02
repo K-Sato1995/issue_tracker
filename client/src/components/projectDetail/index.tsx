@@ -31,6 +31,7 @@ const ProjectDetail = () => {
   const project = data.project;
   const onDragEnd = () => {
     // TODO: Change status here
+    console.log("OnDragEnd");
   };
   return (
     <>
