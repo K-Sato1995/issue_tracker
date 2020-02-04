@@ -1,0 +1,50 @@
+version: 2.1
+orbs:
+  ruby-orbs: sue445/ruby-orbs@1.4.3
+  aws-ecr: circleci/aws-ecr@6.2.0
+  aws-ecs: circleci/aws-ecs@0.0.9
+
+executors:
+  server:
+    docker:
+      - image: circleci/ruby:2.6.5
+      - image: circleci/mysql:5.7-ram
+        command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_general_ci
+        environment:
+          MYSQL_ROOT_PASSWORD: password
+      - image: redis:5.0.4
+      - image: localstack/localstack:0.10.4
+        environment:
+          SERVICES: s3
+          HOSTNAME_EXTERNAL: localhost:4572
+          DEBUG: "true"
+          DEFAULT_REGION: ap-northeast-1
+    working_directory: ~/project/server
+    environment:
+      RAILS_ENV: test
+      DATABASE_HOST: 127.0.0.1
+      REDIS_HOST: 127.0.0.1
+      AWS_S3_ENDPOINT: http://localhost:4572
+      AWS_S3_ASSET_HOST: http://localhost:4572
+      LANG: C.UTF-8
+      TZ: Asia/Tokyo
+
+jobs:
+  rspec:
+    executor:
+      name: server
+    steps:
+      - checkout:
+          path: ~/project
+      - ruby-orbs/bundle-install:
+          restore_bundled_with: false
+          cache_key_prefix: v2-bundle
+      - run: sudo apt update -y && sudo apt -f install python-pip && pip install awscli-local
+      - run: awslocal s3 mb s3://synca-test
+      - run: bundle exec rake db:create db:apply
+      - run: mkdir ~/rspec
+      - run: bundle exec rspec --profile 10 --format progress --format RspecJunitFormatter -o ~/rspec/rspec.xml
+      - store_test_results:
+          path: ~/rspec
+      - store_artifacts:
+          path: ~/project/server/coverage
