@@ -23,7 +23,7 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.0.1",
     "styled-components": "^5.0.0",
-    "typescript": "^3.7.5"
+    "typescript": "^3.9.10"
   },
   "scripts": {
     "start": "PORT=4020 react-scripts start",
