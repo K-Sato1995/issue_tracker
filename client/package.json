@@ -23,7 +23,8 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.0.1",
     "styled-components": "^5.0.0",
-    "typescript": "^3.7.5"
+    "typescript": "^3.7.5",
+    "@snyk/protect": "latest"
   },
   "scripts": {
     "start": "PORT=4020 react-scripts start",
@@ -33,7 +34,9 @@
     "generate": "npm-run-all clean generate:*",
     "generate:types": "apollo client:codegen --endpoint='http://localhost:3020/graphql' --includes='src/graphql/**/*.graphql' --target=typescript --outputFlat --tsFileExtension='d.ts' src/__types__",
     "generate:fragmentTypes": "gql-gen",
-    "clean": "rimraf src/schema.graphql src/__types__ src/fragmentTypes.json"
+    "clean": "rimraf src/schema.graphql src/__types__ src/fragmentTypes.json",
+    "prepare": "npm run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -57,5 +60,6 @@
     "@graphql-codegen/typescript-operations": "1.4.0",
     "@graphql-codegen/typescript-react-apollo": "1.4.0",
     "graphql": "^14.6.0"
-  }
+  },
+  "snyk": true
 }
